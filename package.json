@@ -31,5 +31,6 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2"
-  }
+  },
+  "homepage":"https://jongminfire.netlify.app/"
 }
