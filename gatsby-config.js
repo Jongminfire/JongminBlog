@@ -6,7 +6,14 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `JONGMINFIRE`,
+    siteTitle: `JONGMINFIRE`,
+    siteTitleAlt: `Jongminfire`,
+    siteHeadline: `Jongminfire`,
+    siteUrl: `https://minimal-blog.lekoarts.de`,
+    siteDescription: `Jongminfire`,
+    siteLanguage: `en`,
+    siteImage: `/firewood.png`,
+    author: `@jongminfire`,
   },
   plugins: [
     {
