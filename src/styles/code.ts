@@ -2,12 +2,14 @@ import { tint } from "@theme-ui/color"
 
 const code = {
   "[data-name='live-editor']": {
+    fontFamily: `'Open Sans','menlo','monaco','monospace'`,
     fontSize: 1,
     "textarea, pre": {
       padding: (t: any) => `${t.space[3]} !important`,
     },
   },
   "[data-name='live-preview']": {
+    fontFamily: `'Open Sans','menlo','monaco','monospace'`,
     padding: (t: any) => `calc(${t.space[2]} + 10px) !important`,
     backgroundColor: tint(`primary`, 0.7),
   },
@@ -187,17 +189,18 @@ const code = {
     position: `relative`,
   },
   ".code-title": {
-    backgroundColor: tint(`primary`, 0.7),
-    color: `black`,
+    backgroundColor: tint(`primary`, 0.5),
+    color: `white`,
     fontSize: 0,
     px: 3,
     py: 2,
-    fontFamily: `monospace`,
+    fontFamily: `'Open Sans','menlo','monaco','monospace'`,
     mx: [0, 0, 0, -3],
   },
   "[data-name='live-preview'], [data-name='live-editor']": {
     mx: [0, 0, 0, -3],
     fontSize: [1, 1, 2],
+    fontFamily: `'Open Sans','menlo','monaco','monospace'`,
   },
   ".token-line": {
     pr: 3,
