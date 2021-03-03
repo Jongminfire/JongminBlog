@@ -9,7 +9,7 @@ module.exports = {
     siteTitle: `JONGMINFIRE`,
     siteTitleAlt: `Jongminfire`,
     siteHeadline: `Jongminfire`,
-    siteUrl: `https://minimal-blog.lekoarts.de`,
+    siteUrl: `https://jongminfire.netlify.app/`,
     siteDescription: `Jongminfire`,
     siteLanguage: `en`,
     siteImage: `/firewood.png`,

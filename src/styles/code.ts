@@ -2,19 +2,20 @@ import { tint } from "@theme-ui/color"
 
 const code = {
   "[data-name='live-editor']": {
-    fontFamily: `'Open Sans','menlo','monaco','monospace'`,
     fontSize: 1,
+    fontFamily: `'menlo', 'monaco','monospace'`,
     "textarea, pre": {
       padding: (t: any) => `${t.space[3]} !important`,
     },
   },
   "[data-name='live-preview']": {
-    fontFamily: `'Open Sans','menlo','monaco','monospace'`,
+    fontFamily: `'menlo', 'monaco','monospace'`,
     padding: (t: any) => `calc(${t.space[2]} + 10px) !important`,
     backgroundColor: tint(`primary`, 0.7),
   },
   ".prism-code": {
     fontSize: [1, 1, 2],
+    fontFamily: `'menlo', 'monaco','monospace'`,
     padding: `2rem 1rem 1rem 1rem`,
     webkitOverflowScrolling: `touch`,
     backgroundColor: `transparent`,
@@ -189,18 +190,18 @@ const code = {
     position: `relative`,
   },
   ".code-title": {
-    backgroundColor: tint(`primary`, 0.5),
-    color: `white`,
+    backgroundColor: tint(`primary`, 0.7),
+    color: `black`,
     fontSize: 0,
     px: 3,
     py: 2,
-    fontFamily: `'Open Sans','menlo','monaco','monospace'`,
+    fontFamily: `'menlo', 'monaco','monospace'`,
     mx: [0, 0, 0, -3],
   },
   "[data-name='live-preview'], [data-name='live-editor']": {
     mx: [0, 0, 0, -3],
     fontSize: [1, 1, 2],
-    fontFamily: `'Open Sans','menlo','monaco','monospace'`,
+    fontFamily: `'menlo', 'monaco','monospace'`,
   },
   ".token-line": {
     pr: 3,
