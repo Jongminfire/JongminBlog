@@ -5,6 +5,7 @@ import React from "react"
 import Layout from "./layout"
 import ItemTags from "./item-tags"
 import SEO from "./seo"
+import Utterances from "./Utterances"
 
 type PostProps = {
   data: {
@@ -67,6 +68,8 @@ const Post = ({ data: { post } }: PostProps) => (
     >
       <MDXRenderer>{post.body}</MDXRenderer>
     </section>
+    <div style={{borderBottom:'1px solid #CBD5E0', width:'100%', margin:'5rem 0 3rem'}}/>
+    <Utterances repo="Jongminfire/JongminBlog"/>
   </Layout>
 )
 
