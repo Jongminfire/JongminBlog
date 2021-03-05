@@ -45,7 +45,7 @@ const Post = ({ data: { post } }: PostProps) => (
       pathname={post.slug}
       canonicalUrl={post.canonicalUrl}
     />
-    <Heading as="h1" variant="styles.h1">
+    <Heading as="h2" variant="styles.h2">
       {post.title}
     </Heading>
     <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
@@ -59,6 +59,7 @@ const Post = ({ data: { post } }: PostProps) => (
       {post.timeToRead && ` — `}
       {post.timeToRead && <span>{post.timeToRead} min read</span>}
     </p>
+    <br/>
     <section
       sx={{
         my: 5,
