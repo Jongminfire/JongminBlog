@@ -9,7 +9,7 @@ export default {
   "[data-name='live-preview']": {
     padding: (t: any) => `calc(${t.space[2]} + 10px) !important`,
     fontFamily: `'menlo', 'monaco','monospace'`,
-    backgroundColor: tint(`primary`, 0.7),
+    backgroundColor: tint(`primary`, 0.5),
   },
   ".prism-code": {
     fontSize: 1,
