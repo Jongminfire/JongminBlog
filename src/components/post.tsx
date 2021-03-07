@@ -56,8 +56,6 @@ const Post = ({ data: { post } }: PostProps) => (
           <ItemTags tags={post.tags} />
         </React.Fragment>
       )}
-      {post.timeToRead && ` — `}
-      {post.timeToRead && <span>{post.timeToRead} min read</span>}
     </p>
     <br/>
     <section
