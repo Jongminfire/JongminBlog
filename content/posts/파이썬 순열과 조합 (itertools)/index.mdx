@@ -1,0 +1,97 @@
+---
+title: 파이썬 순열과 조합 (itertools)
+date: 2021-03-10
+tags:
+    - Python
+---
+
+> #### 파이썬에서 순열과 조합 구하기
+
+<br/>
+
+파이썬  `itertools` 의 모듈을 사용해서 리스트, 튜플, 문자열 등의 요소에서 순열과 조합을 구할 수 있다.
+
+<br/>
+
+##### 순열을 구하기 위한 `permutations()`
+
+<br/>
+
+~~~python
+>>> from itertools import permutations
+
+>>> arr = ['A','B','C','D']
+
+>>> list(permutations(arr,2))	# arr에서 2개를 뽑는 순열 구하기
+[('A', 'B'), ('A', 'C'), ('A', 'D'), ('B', 'A'), ('B', 'C'), ('B', 'D'), ('C', 'A'), ('C', 'B'), ('C', 'D'), ('D', 'A'), ('D', 'B'), ('D', 'C')]
+
+>>> list(permutations(arr,3))	# arr에서 3개를 뽑는 순열 구하기
+[('A', 'B', 'C'), ('A', 'B', 'D'), ('A', 'C', 'B'), ('A', 'C', 'D'), ('A', 'D', 'B'), ('A', 'D', 'C'), ('B', 'A', 'C'), ('B', 'A', 'D'), ('B', 'C', 'A'), ('B', 'C', 'D'), ('B', 'D', 'A'), ('B', 'D', 'C'), ('C', 'A', 'B'), ('C', 'A', 'D'), ('C', 'B', 'A'), ('C', 'B', 'D'), ('C', 'D', 'A'), ('C', 'D', 'B'), ('D', 'A', 'B'), ('D', 'A', 'C'), ('D', 'B', 'A'), ('D', 'B', 'C'), ('D', 'C', 'A'), ('D', 'C', 'B')]
+~~~
+
+<br/>
+
+이처럼 `permutations(요소,개수)` 을 통해 한 요소에서 n개의 순열을 뽑을 수 있다. 순열은 순서를 고려하여 선택한 경우의 수를 나열하므로 **(' A ',' B ')** 와 **(' B ',' A ')**를 다른 경우의 수로 뽑음을 알 수 있다.
+
+`permutations`에서는 두 번째 인자를 받지 않으면 요소의 전체 길이가 default 값으로 들어간다.
+
+`permutations`의 반환 값은 `itertools.permutations` 객체로 반환 되므로 위에서는 list 형식으로 출력하였다.
+
+<br/>
+
+##### 조합을 구하기 위한 `combinations()`
+
+<br/>
+
+~~~python
+>>> from itertools import permutations
+
+>>> arr = ['A','B','C','D']
+
+>>> list(combinations(arr,2))	# arr에서 2개를 뽑는 조합 구하기
+[('A', 'B'), ('A', 'C'), ('A', 'D'), ('B', 'C'), ('B', 'D'), ('C', 'D')]
+
+>>> list(combinations(arr,3))	# arr에서 3개를 뽑는 순열 구하기
+[('A', 'B', 'C'), ('A', 'B', 'D'), ('A', 'C', 'D'), ('B', 'C', 'D')]
+~~~
+
+<br/>
+
+`combinations(요소,개수)`을 통해 한 요소에서 n개의 조합을 뽑을 수 있다. 조합은 순열과 다르게 순서를 고려하지 않고 선택한 경우의 수를 나열하므로 **(' A ',' B ')** 와 **(' B ',' A ')** 를 같은 경우로 뽑는다.
+
+`combinations`에서는 두 번째 인자를 넣지 않으면 에러가 발생하므로 두번째 인자를 꼭 넣어주도록 한다.
+
+마찬가지로 `combinations`의 반환 값은 `itertools.combinations` 객체로 반환 되므로 list형식으로 출력하였다.
+
+<br/>
+
+##### 두개 이상의 요소의 조합을 구하기 위한 `product()`
+
+<br/>
+
+~~~python
+>>> from itertools import product
+
+>>> lst1 = [1,2,3]
+>>> lst2 = ['A','B','C']
+
+>>> list(product(lst1,lst2))
+[(1, 'A'), (1, 'B'), (1, 'C'), (2, 'A'), (2, 'B'), (2, 'C'), (3, 'A'), (3, 'B'), (3, 'C')]
+~~~
+
+<br/>
+
+`product(요소1,요소2,...)` 를 통해 여러 요소에서 값을 **하나씩 선택**한 조합을 뽑을 수 있다.
+
+`product(요소1 , repeat = "n")` 의 형식을 통해서 요소1 n개를 통한 조합을 뽑는 것도 가능하다.
+
+`product`의 반환 값은 `itertools.product` 객체로 반환 되므로 list 형식으로 출력하였다.
+
+<br/>
+
+<br/>
+
+`itertools`를 활용해서 python에서 간단하게 순열과 조합을 구하는 방법에 대해 알아 보았다. 
+
+다만 `itertools`는 시간 복잡도가 크기 때문에 PS에서는 적절하지 않을 수 있다는 단점이 있으니 유의 해야겠다.
+
