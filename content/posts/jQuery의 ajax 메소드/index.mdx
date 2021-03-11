@@ -1,0 +1,80 @@
+---
+title: jQuery의 ajax 메소드
+date: 2021-03-11
+tags:
+    - Web
+    - ajax
+---
+
+> ### jQuery를 이용한 Ajax 통신
+
+<br/>
+
+Ajax는 Javascript의 라이브러리 중 하나이며 비동기 통신을 통해 XML 데이터를 주고 받는 기술이다. 
+
+그중에서도 jQuery의 메소드로 HTTP 요청을 해본다.
+
+<br/>
+
+#### $.ajax() 메소드
+
+<br/>
+
+`$.ajax()` 메소드는 비동기 HTTP 요청을 수행하는 메소드이다.
+
+<br/>
+
+> #### 기본 형식
+
+~~~javascript
+$.ajax('url' [,settings])
+
+$.ajax('url',{
+    data:
+    method:
+    dataType
+})
+~~~
+
+<br/>
+
+- url : 클라이언트가 HTTP 요청을 보낼 서버의 주소
+- settings
+  - data : 요청과 함께 서버에 보내는 string 또는 json
+  - method : HTTP 요청 메소드 (GET, POST ..)
+  - dataType : 서버에서 보내줄 데이터의 타입
+
+<br/>
+
+> #### 메소드 체이닝
+
+<br/>
+
+메소드 체이닝을 이용해 HTTP 요청으로 얻은 데이터를 처리 할 수 있다.
+
+<br/>
+
+| 메소드명 | 설명                                                         |
+| -------- | ------------------------------------------------------------ |
+| `done`   | HTTP 요청이 성공하면 요청한 데이터가 `done()` 메소드로 전달된다. |
+| `fail`   | HTTP 요청이 실패하면 오류와 상태에 관한 정보가 `fail()` 메소드로 전달된다. |
+| `always` | HTTP 요청이 성공하거나 실패하는 것에 상관없이 언제나 `always()` 메소드가 실행된다. |
+
+<br/>
+
+~~~javascript
+$.ajax('url')
+.done((json)=>{
+    console.log(json);
+})
+.fail((xhr, status, error)=>{
+    console.log("오류명: "+error);
+    console.log("상태: "+status);
+})
+.always((xhr,status)=>{
+    console.log("요청이 완료되었습니다.");
+})
+~~~
+
+
+
