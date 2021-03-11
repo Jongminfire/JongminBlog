@@ -47,8 +47,9 @@ const theme = merge(tailwind, {
       wordBreak: `break-word`,
     },
     ul: {
+      fontSize: 16,
       li: {
-        fontSize: [1, 1, 2],
+        fontSize: 16,
         letterSpacing: `-0.003em`,
         lineHeight: `body`,
         "--baseline-multiplier": 0.179,
@@ -56,8 +57,9 @@ const theme = merge(tailwind, {
       },
     },
     ol: {
+      fontSize: 16,
       li: {
-        fontSize: [1, 1, 2],
+        fontSize: 16,
         letterSpacing: `-0.003em`,
         lineHeight: `body`,
         "--baseline-multiplier": 0.179,
