@@ -45,18 +45,22 @@ const Post = ({ data: { post } }: PostProps) => (
       pathname={post.slug}
       canonicalUrl={post.canonicalUrl}
     />
-    <Heading as="h2" variant="styles.h2">
-      {post.title}
-    </Heading>
-    <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
-      <time>{post.date}</time>
-      {post.tags && (
-        <React.Fragment>
-          {` — `}
-          <ItemTags tags={post.tags} />
-        </React.Fragment>
-      )}
-    </p>
+    <div style={{boxShadow:"3px 3px 10px rgba(200,200,200,0.5)", display:"flex", justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
+      <center>
+        <Heading as="h2" variant="styles.h2">
+          {post.title}
+        </Heading>
+      </center>
+      <p sx={{ color: `secondary`, mt: 3, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
+        <time>{post.date}</time>
+        {post.tags && (
+          <React.Fragment>
+            {` — `}
+            <ItemTags tags={post.tags} />
+          </React.Fragment>
+        )}
+      </p>
+    </div>
     <br/>
     <section
       sx={{
