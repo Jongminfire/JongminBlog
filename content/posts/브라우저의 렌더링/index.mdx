@@ -1,0 +1,107 @@
+---
+title: 브라우저의 렌더링
+date: 2021-03-24
+tags:
+    - Web
+---
+
+**렌더링**이란 HTML, CSS, Javascript 등 개발자가 작성한 문서를 브라우저에서 그래픽 형태로 출력하는 과정이다.
+
+
+
+렌더링 엔진을 이용해서 요청받은 내용을 부라우저 화면에 나타내는데 브라우저마다 사용하는 렌더링 엔진은 다양하다. 파이어폭스는 게코(Gecko)를 사용하고 사파리는 웹킷(Webkit)을 사용하며 크롬의 경우 웹킷을 사용하다가 블링크(Blink) 엔진을 자체적으로 구현하여 사용하고 있다.
+
+
+
+각각의 렌더링 엔진은 지원하는 표준이 다르거나 렌더링 알고리즘과 방식에 차이가 있을 수 있기 때문에 크롬, 파이어폭스 등 각 브라우저 별로 테스트를 수행하여 여러 브라우저의 호환성에 문제가 없는지 검사하는 과정이 필요 할 것이다.
+
+<br/>
+
+
+
+> ### 렌더링 과정
+
+<br/>
+
+1. ###### HTML 파싱 후, DOM(Document Object Model) 트리 구축
+
+   HTML을 파싱하여 DOM 노드를 만든다. 이 DOM 노드들을 병합하여 DOM 트리를 만든다.
+   <br/>
+
+2. ###### CSS 파싱 후, CSSOM(CSS Object Model) 트리 구축
+
+   CSS를 파싱하여 CSSOM 트리를 만든다.
+   <br/>
+
+3. ###### DOM과 CSSOM을 조합하여 렌더트리 (Render Tree) 구축
+
+   DOM 트리와 CSSOM 트리를 사용해서 렌더트리를 만든다. Render Tree에는 스타일 정보가 설정되어 있으며 실제 화면에 표현되는 노드들로만 구성된다.
+
+   따라서 `display:none` 속성이 설정된 노드는 화면에 어떠한 공간도 차지하지 않기 때문에 Render Tree 만드는 과정에서 제외 된다. 
+   <br/>
+
+4. ###### Layout  단계
+
+   Layout 단계에서는 브라우저의 뷰포트(Viewport) 내에서 각 노드들의 정확한 위치와 크기를 계산한다. Render Tree 노드들이 가지고 있는 스타일과 속성에 따라서 브라우저 화면의 어느 위치에 어느 크기로 출력될지 계산하는 단계라고 할 수 있다.
+   <br/>
+
+5. ###### Paint 단계
+
+   Layout 단계가 완료되면 요소들을 실제 화면에 그리게 된다. 요소들의 위치와 크기, 스타일 계산이 완료된 Render Tree를 이용해 실제 픽셀 값을 채워 넣는다.
+   <br/>
+
+<br/>
+
+> ### 렌더링 최적화
+
+<br/>
+
+그렇다면 어떻게 렌더링과 관련되어 웹 성능을 최적화 할 수 있을까? 렌더링을 최적화 하기 위해서는 
+
+윈도우 리사이징이나 요소의 위치 크기 변경으로 일어나는 **Reflow** (Layout) 와 수정된 Render Tree를 화면에 다시 그리는 **Repaint** (Paint) 를 줄여야 할 것이다.
+
+
+
+다음은 Reflow, Repaint 연산을 줄이는 방법들이다.
+
+<br/>
+
+1. ###### 사용하지 않는 노드에는 `visibility : invisible` 보다 `display : none` 을 사용하기
+
+   visibility : invisible 은 레이아웃의 공간을 차지하기 때문에 reflow의 대상이 되지만 display : none은 Layout 공간을 차지 하지 않아 Render Tree에서 제외 된다.
+   <br/>
+    
+2. ###### Reflow, Repaint 가 발생하는 속성 사용을 피하기
+
+   CSS속성 중 Reflow와 Repaint가 일어나지 않는 속성들을 사용한다.
+   <br/>
+
+3. ###### 영향을 주는 노드 줄이기
+
+   position의 경우 fixed는 영향을 받는 노드가 전혀 없기 때문에 애니메이션이 많거나 레이아웃 변화가 많은 요소의 경우 absolute 또는 fixed를 사용한다.
+   <br/>
+
+4. ###### 프레임 줄이기
+
+   0.1초에 1px씩 이동하는 요소보다 0.5초에 5px씩 이동하는 요소가 Reflow, Repaint 연산 비용이 5배 적다는 것을 알 수 있다. 프레임을 줄이면 성능을 개선할 수 있다.
+   <br/>
+
+<br/>
+
+> ### React Virtual DOM
+
+<br/>
+
+React를 사용한다면 빠른 웹 페이지 성능을 느낄 수 있는데 이는 React의 Virtual DOM 때문이다.
+
+일반적으로는 DOM에 접근하여 여러번의 속성 변화, 여러번의 스타일 변화를 수행하면 그에따라 여러번의 Reflow, Repaint가 발생하게 된다. 하지만 React에서는 뷰에 변화가 있다면 변화를 실제 DOM에 적용시키기 전에 가상의 DOM에 먼저 적용시키고, 최종적인 결과를 실제 DOM으로 전달한다.
+
+최종적으로 전달된 DOM에서는 Reflow와 Repaint를 한번만 수행하면 되므로 여러번의 Reflow, Repaint를 수행하며 연산이 반복적으로 일어나는 부분이 줄어들어 성능이 개선된다.
+
+<br/>
+
+### 참조
+
+- https://boxfoxs.tistory.com/408
+- https://beomy.github.io/tech/browser/browser-rendering/#domdocumnet-object-model
+- https://velopert.com/3236
