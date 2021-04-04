@@ -1,0 +1,72 @@
+---
+title: CSS-in-JS
+date: 2021-04-04
+tags:
+    - Web
+    - CSS
+---
+
+> #### CSS-in-JS?
+
+<br />
+
+CSS-in-JS는 스타일 정의를 css나 scss 파일이 아닌 JavaScript로 작성된 컴포넌트에 바로 삽입하는 스타일 기법이다.
+
+기존 웹사이트는 HTML, CSS, JavaScript를 각자 별도의 파일로 두었는데, React나 Vue, Angluar와 같은 모던 자바스크립트 라이브러리가 인기를 끌고 컴포넌트 기발 개발 방법의 주류가 됨에 따라 한 컴포넌트에 HTML, CSS, JavaScript를 모두 포함하는 패턴이 많이 사용되고 있다.
+
+<br />
+<br />
+
+> ##### inline-style 과의 차이점?
+
+<br />
+
+언뜻보면 CSS-in-JS는 컴포넌트 안에 css를 정의하는 inline-style과도 비슷한 느낌이다. 하지만 inline-style에는 다음과 같은 단점이 있으므로 inline-style의 사용은 지양하는 것이 좋다.
+
+<br />
+
+-   CSS 속성의 중복, 재사용성이 떨어진다
+-   inline-style로는 의사 클래스, 의사 요소, 미디어 쿼리, 키 프레임 애니메이션 같은 CSS의 기능을 활용할 수 없다
+-   앱의 규모가 커질수록 유지 보수가 어렵다
+-   인라인 스타일이 많으면 코드 가독성이 떨어진다
+-   inline style은 인라인 태그로 style을 정의하는 반면 CSS-in-JS는 style태그를 따로 정의하고 해당 태그에 class화 시켜서 연결 하는 방식으로 동작한다.
+
+<br />
+
+또 JSX 문법을 사용하는 React의 경우에서는 모든 속성이 props 객체의 일부가 된다. 그러니 style 부분의 비교는 항상 false가 나오게 되고 다시 렌더링 될 때마다 스타일 객체가 다시 계산되어서 성능이 저하될 수 있다.
+
+<br />
+<br />
+
+> ##### CSS-in-JS의 장점
+
+<br />
+
+-   CSS의 컴포넌트화로 스타일시트의 파일을 유지보수 할 필요가 없다. CSS 모델을 문서 레벨이 아닌 컴포넌트 레벨로 추상화한다 (모듈성)
+-   CSS-in-JS는 JavaSript 환경을 최대한 활용 할 수 있다
+-   JavaScript와 CSS 사이의 상수와 함수를 쉽게 공유 할 수 있다
+-   현재 사용중인 스타일만 DOM에 포함한다.
+-   CSS-in-JS는 짧은 길이의 유니크한 클래스를 자동으로 생성하기 때문에 코드 경량화의 장점이 있다
+
+<br />
+<br />
+
+> ##### CSS-in-JS의 단점
+
+<br />
+
+-   러닝 커브
+-   새로운 의존성
+-   별도의 라이브러리를 설치해야 하므로 번들 크기가 커진다
+-   인터랙션한 페이지일 경우 CSS 파일을 따로 관리하는 방법에 비해 느린 성능을 보여줄 수 있다.
+
+<br />
+<br />
+
+#### 참조
+
+<br />
+
+-   https://code-masterjung.tistory.com/68 (inline style의 문제점)
+-   https://d0gf00t.tistory.com/22 (CSS-in-JS에 관해 알아야 할 모든 것)
+-   https://blueshw.github.io/2020/09/14/why-css-in-css/ (CSS-in-CSS)
