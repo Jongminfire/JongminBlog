@@ -9,10 +9,10 @@ module.exports = {
 		siteTitle: `JONGMINFIRE 🔥`,
 		siteTitleAlt: `Jongminfire`,
 		siteHeadline: `Jongminfire`,
-		siteUrl: `https://jongminfire.netlify.app/`,
+		siteUrl: `https://jongminfire.dev`,
 		siteDescription: `종민 블로그`,
 		siteLanguage: `KR`,
-		siteImage: `static/firewood.jpg`,
+		siteImage: `/firewood.jpg`,
 		author: `@jongminfire`,
 	},
 	plugins: [
@@ -67,9 +67,9 @@ module.exports = {
 				display: `standalone`,
 				icons: [
 					{
-						src: `/static/favicon.ico`,
+						src: `/firewood.jpg`,
 						sizes: `192x192`,
-						type: `image/ico`,
+						type: `image/jpg`,
 					},
 				],
 			},
