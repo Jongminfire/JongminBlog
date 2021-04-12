@@ -12,7 +12,7 @@ module.exports = {
 		siteUrl: `https://jongminfire.netlify.app/`,
 		siteDescription: `종민 블로그`,
 		siteLanguage: `KR`,
-		siteImage: `/firewood.jpg`,
+		siteImage: `static/firewood.jpg`,
 		author: `@jongminfire`,
 	},
 	plugins: [
@@ -51,7 +51,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {
-				trackingId: process.env.GOOGLE_ANALYTICS_ID,
+				trackingId: "G-0HTD4WH76G",
 			},
 		},
 		`gatsby-plugin-sitemap`,
@@ -67,9 +67,9 @@ module.exports = {
 				display: `standalone`,
 				icons: [
 					{
-						src: `/static/firewood.jpg`,
+						src: `/static/favicon.ico`,
 						sizes: `192x192`,
-						type: `image/jpg`,
+						type: `image/ico`,
 					},
 				],
 			},
