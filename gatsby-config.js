@@ -10,15 +10,14 @@ module.exports = {
 		siteTitleAlt: `Jongminfire`,
 		siteHeadline: `Jongminfire`,
 		siteUrl: `https://jongminfire.dev`,
-		siteDescription: `종민 블로그`,
+		siteDescription: `프론트엔드 개발자 이종민 블로그`,
 		siteLanguage: `KR`,
-		siteImage: `/firewood.jpg`,
+		siteImage: `/profile.png`,
 		author: `@jongminfire`,
 	},
 	plugins: [
 		{
 			resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-			// See the theme's README for all available options
 			options: {
 				navigation: [
 					{
@@ -45,7 +44,7 @@ module.exports = {
 		{
 			resolve: "gatsby-plugin-react-helmet-canonical-urls",
 			options: {
-				siteUrl: "https://jongminfire.dev",
+				siteUrl: `jongminfire.dev`,
 			},
 		},
 		{
@@ -67,9 +66,9 @@ module.exports = {
 				display: `standalone`,
 				icons: [
 					{
-						src: `/firewood.jpg`,
+						src: `/profile.png`,
 						sizes: `192x192`,
-						type: `image/jpg`,
+						type: `image/png`,
 					},
 				],
 			},
