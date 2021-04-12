@@ -44,7 +44,7 @@ module.exports = {
 		{
 			resolve: "gatsby-plugin-react-helmet-canonical-urls",
 			options: {
-				siteUrl: `jongminfire.dev`,
+				siteUrl: `https://jongminfire.dev`,
 			},
 		},
 		{
