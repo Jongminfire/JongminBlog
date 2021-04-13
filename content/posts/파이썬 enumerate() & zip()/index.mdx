@@ -1,0 +1,124 @@
+---
+title: 파이썬 enumerate() & zip()
+date: 2021-04-13
+tags:
+    - Python
+---
+
+> #### enumerate()
+
+<br />
+
+`enumerate()` 함수는 인자의 값을 추출 할 때 인덱스를 추출하는 기법이다. 함수를 사용하면 인덱스 번호와 컬렉션의 원소를 튜플 형태로 반환한다.
+
+<br />
+
+```python
+lst = ['a','b','c','d']
+for i in enumerate(lst):
+    print(i)
+
+(0,'a')
+(1,'b')
+(2,'c')
+(3,'d')
+```
+
+<br />
+
+튜플의 반환 형태를 이용해서 다음과 같이 활용 할 수 있다.
+
+<br />
+
+```python
+for i, v in enumerate(['a','b','c']):
+    print("index : {}, value: {}".format(i,v))
+
+index : 0, value: a
+index : 1, value: b
+index : 2, value: c
+```
+
+<br />
+<br />
+
+> #### zip()
+
+<br />
+
+`zip()` 함수는 여러 개의 순회 가능한(iterable) 객체를 인자로 받아 동일한 개수로 이루어진 자료형을 묶어서 튜플의 형태로 반환한다.
+
+<br />
+
+```python
+num = [1,2,3]
+alpha = ['a','b','c']
+for pair in zip(num,alpha):
+    print(pair)
+
+(1,'a')
+(2,'b')
+(3,'c')
+```
+
+<br />
+
+위 처럼 동일한 개수의 리스트 num과 alpha를 pair라는 투플의 형식으로 합쳐서 처리 할 수 있다.
+
+`zip()` 함수로는 2개 이상의 인자를 병렬 처리 할 수 있기 때문에 다음과 같은 사용도 가능하다.
+
+<br />
+
+```python
+for num,alpha,kor in zip([1,2,3],['a','b','c'],['ㄱ','ㄴ','ㄷ']):
+    print(num, alpha, kor)
+
+1 a ㄱ
+2 b ㄴ
+3 c ㄷ
+```
+
+<br />
+
+`zip()` 함수를 활용 하면 두 개의 리스트나 튜플로 부터 사전(dictionary)를 쉽게 만들 수 있다. key와 value를 담은 리스트를 `zip()` 함수로 합친 뒤, `dict()` 함수를 사용하는 방법이다.
+
+<br />
+
+```python
+key = ['a','b','c']
+value = [1,2,3]
+dictionary = dict(zip(key,value))
+
+print(dictionary)
+
+{'a': 1, 'b': 2, 'c': 3}
+```
+
+<br />
+
+인덱스와 함께 값을 추출하고 싶다면 `zip()` 과 함께 위에서 배운 `enumerate()` 함수를 활용 할 수 있다.
+
+<br />
+
+```python
+alpha = ['a','b','c']
+num = [1,2,3]
+
+# zip은 튜플 형태를 반환하므로 (a,n)으로 묶어준다
+for i,(a,n) in enumerate(zip(alpha,num)):
+    print(i,a,n)
+
+0 a 1
+1 b 2
+2 c 3
+```
+
+<br />
+<br />
+
+#### 참조
+
+<br />
+
+-   https://www.daleseo.com/python-zip/ ([파이썬] 내장 함수 zip 사용법)
+-   https://wikidocs.net/16045 (for in 반복문, Range, enumerate)
