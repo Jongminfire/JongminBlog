@@ -1,0 +1,442 @@
+---
+title: TypeScript의 유틸리티 타입
+date: 2021-04-21
+tags:
+    - TypeScript
+---
+
+TypeScript에서는 유형 변환에 도움을 주는 전역으로 사용 가능한 유틸리티 타입을 제공한다.
+
+TypeScript의 여러 유틸리티 타입에 대해 알아본다.
+
+<br />
+
+---
+
+<br />
+
+##### `Partial<Type>`
+
+`Type`의 모든 속성을 선택적 (`?`) 으로 변경한 새로운 타입을 반환한다. (↔ `Required<Type>`)
+
+<br />
+
+```typescript
+interface User {
+	name: string;
+	age: number;
+}
+
+const userA: User = {
+	name: "Jongmin",
+};
+// TS2741: Property 'age' is missing in type '{ name: string; }' but required in type 'IUser'.
+
+const userB: Partial<User> = {
+	name: "Jongmin",
+};
+```
+
+<br />
+
+`Partial<User>` 은 다음처럼 이해 할 수 있다.
+
+<br />
+
+```typescript
+interface NewType {
+	name?: string;
+	age?: number;
+}
+```
+
+<br />
+
+---
+
+<br />
+
+##### `Readonly<Type>`
+
+`Type`의 모든 속성을 읽기 전용(readonly)로 설정한 타입을 구성한다.
+
+<br />
+
+```typescript
+interface User {
+	name: string;
+}
+
+const userA: Readonly<User> = {
+	name: "Jongmin",
+};
+
+userA.name = "Minjong";
+// error TS2540: Cannot assign to 'name' because it is a read-only property.
+```
+
+<br />
+
+---
+
+<br />
+
+##### `Record<Keys,Type>`
+
+타입 `Type`의 속성 집합 `Keys`로 타입을 구성한다.
+
+<br />
+
+```typescript
+interface StudentInfo {
+	age: number;
+	graduated: boolean;
+}
+
+type Student = "Kim" | "Lee" | "Park";
+
+const x: Record<Student, StudentInfo> = {
+	Kim: { age: 21, graduated: false },
+	Lee: { age: 26, graduated: true },
+	Park: { age: 24, graduated: false },
+};
+```
+
+<br />
+
+위의 `Record<K,T>` 는 다음과 같이 이해 할 수 있다.
+
+<br />
+
+```typescript
+interface NewType {
+	Kim: { age: number; graduated: boolean };
+	Lee: { age: number; graduated: boolean };
+	Park: { age: number; graduated: boolean };
+}
+```
+
+<br />
+
+---
+
+<br />
+
+##### `Pick<Type,Keys>`
+
+`Type`에서 속성 `Keys`의 집합을 선택해서 타입을 구성한다.
+
+<br />
+
+```typescript
+interface UserInfo {
+	name: string;
+	age: number;
+	graduated: boolean;
+}
+
+type Keys = "name" | "email";
+
+const user: Pick<UserInfo, Keys> = {
+	name: "Lee Jongmin",
+	age: 26,
+	graduated: true, // error TS2322: Type '{ name: string; age: number; graduated: boolean; }' is not assignable to type 'Pick<UserInfo, Key>'.
+};
+```
+
+<br />
+
+위의 `Pick<UserInfo,Keys>` 는 다음과 같이 이해 할 수 있다.
+
+<br />
+
+```typescript
+interface NewType {
+	name: string;
+	age: number;
+}
+```
+
+<br />
+
+---
+
+<br />
+
+##### `Omit<Type,Keys>`
+
+`Type`의 모든 프로퍼티를 선택한 다음 `Keys`를 제거한 타입을 구성한다.
+
+<br />
+
+```typescript
+interface UserInfo {
+	name: string;
+	age: number;
+	gender: string;
+}
+
+type GenderPrivate = Omit<UserInfo, "gender">;
+
+const user: GenderPrivate = {
+	name: "Jongmin",
+	age: 26,
+};
+```
+
+<br />
+
+---
+
+<br />
+
+##### `Exclude<T1,T2>`
+
+`T1`에서 `T2`를 제외한 타입을 구성한다. (T1 - T2)로 이해 할 수 있다.
+
+<br />
+
+```typescript
+type T1 = "a" | "b" | "c" | "d";
+type T2 = "c" | "d";
+
+type T3 = Exclude<T1, T2>; // 'a'|'b'
+```
+
+<br />
+
+---
+
+<br />
+
+##### `Extract<T1,T2>`
+
+`T1`에서 `T2`에 할당 할 수 있는 모든 속성을 추출해 타입을 구성한다. (T1 ∩ T2)로 이해 할 수 있다.
+
+<br />
+
+```typescript
+type T1 = Extract<"a" | "b" | "c", "a" | "d">; // 'a'
+type T2 = Extract<string | number, boolean>; // never
+```
+
+<br />
+
+---
+
+<br />
+
+##### `NonNullable<Type>`
+
+`Type`에서 `null`과 `undefined`를 제외한 새로운 타입을 반환한다.
+
+<br />
+
+```typescript
+type T = string | null | undefined;
+
+const a: T = null;
+const b: NonNullable<T> = null; // error TS2322: Type 'null' is not assignable to type 'string'.
+```
+
+<br />
+
+---
+
+<br />
+
+##### `Parameters<Type>`
+
+함수 타입 `Type`의 매개변수 타입들의 튜플 타입을 구성한다.
+
+<br />
+
+```typescript
+declare function f1(arg: { a: number; b: string }): void;
+type T0 = Parameters<() => string>; // []
+type T1 = Parameters<(s: string) => void>; // [s: string]
+type T2 = Parameters<<T>(arg: T) => T>; // [arg: unknown]
+type T4 = Parameters<typeof f1>; // [arg: { a: number, b: string }]
+type T5 = Parameters<any>; // unknown[]
+type T6 = Parameters<never>; // never
+type T7 = Parameters<string>; // Type 'string' does not satisfy the constraint '(...args: any) => any'.
+type T8 = Parameters<Function>; // Type 'Function' does not satisfy the constraint '(...args: any) => any' Type 'Function' provides no match for the signature '(...args: any): any'.
+```
+
+<br />
+
+---
+
+<br />
+
+##### `ConstructorParameters<Type>`
+
+클래스 `Type`의 매개변수 타입을 새로운 튜플 타입으로 구성한다. (`Type`가 함수가 아닌 경우 `never`을 생성)
+
+<br />
+
+```typescript
+type T0 = ConstructorParameters<ErrorConstructor>; // [message?: string]
+type T1 = ConstructorParameters<FunctionConstructor>; // string[]
+type T2 = ConstructorParameters<RegExpConstructor>; // [pattern: string | RegExp, flags?: string]
+type T3 = ConstructorParameters<any>; // unknown[]
+type T4 = ConstructorParameters<Function>; // Type 'Function' does not satisfy the constraint 'abstract new (...args: any) => any'. Type 'Function' provides no match for the signature 'new (...args: any): any'.
+```
+
+<br />
+
+---
+
+<br />
+
+##### `ReturnType<Type>`
+
+함수 `Type`의 반환 타입으로 구성된 타입을 구성한다.
+
+<br />
+
+```typescript
+declare function f1(): { a: number; b: string };
+type T0 = ReturnType<() => string>; // string
+type T1 = ReturnType<(s: string) => void>; // void
+type T2 = ReturnType<<T>() => T>; // unknown
+type T3 = ReturnType<<T extends U, U extends number[]>() => T>; // number[]
+type T4 = ReturnType<typeof f1>; // { a: number, b: string }
+type T5 = ReturnType<any>; // any
+type T6 = ReturnType<never>; // never
+type T7 = ReturnType<string>; // Type 'string' does not satisfy the constraint '(...args: any) => any'.
+type T8 = ReturnType<Function>; // Type 'Function' does not satisfy the constraint '(...args: any) => any'. Type 'Function' provides no match for the signature '(...args: any): any'.
+```
+
+<br />
+
+---
+
+<br />
+
+##### `InstanceType<Type>`
+
+생성자 함수 타입 `Type`의 인스턴스 타입으로 구성된 타입을 구성한다.
+
+<br />
+
+```typescript
+class C {
+	x = 0;
+	y = 0;
+}
+
+type T0 = InstanceType<typeof C>; // C
+type T1 = InstanceType<any>; // any
+type T2 = InstanceType<never>; // never
+type T3 = InstanceType<string>; // Type 'string' does not satisfy the constraint 'abstract new (...args: any) => any'.
+type T4 = InstanceType<Function>; // Type 'Function' does not satisfy the constraint 'abstract new (...args: any) => any'. Type 'Function' provides no match for the signature 'new (...args: any): any'.
+```
+
+<br />
+
+---
+
+<br />
+
+##### `Required<Type>`
+
+`Type`의 모든 프로퍼티가 필수로 설정된 타입을 구성한다. (↔ `Partial<Type>`)
+
+<br />
+
+```typescript
+interface User {
+	name?: string;
+	age?: number;
+}
+
+const userA: Required<User> = {
+	name: "Jongmin",
+};
+// TS2741: Property 'age' is missing in type '{ name: string; }' but required in type 'Required<User>'.
+```
+
+<br />
+
+`Required<User>` 은 다음처럼 이해 할 수 있다.
+
+<br />
+
+```typescript
+interface NewType {
+	name: string;
+	age: number;
+}
+```
+
+<br />
+
+---
+
+<br />
+
+##### `ThisParameterType<Type>`
+
+함수 `Type`의 명시적 `this` 매개변수 타입을 새로운 타입으로 반환한다. (`this` 매개변수가 없을 경우 `unknown`을 반환)
+
+<br />
+
+```typescript
+function toHex(this: Number) {
+	return this.toString(16);
+}
+
+function numberToString(n: ThisParameterType<typeof toHex>) {
+	return toHex.apply(n);
+}
+
+// toHex의 명시적 this 타입인 Number를 참고해서 numberToString의 매개변수 n을 선언함.
+```
+
+<br />
+
+---
+
+<br />
+
+##### `OmitThisParameter<Type>`
+
+함수 `Type`에서 `this` 매개변수를 제거한다.
+
+<br />
+
+```typescript
+function toHex(this: Number) {
+	return this.toString(16);
+}
+
+const fiveToHex: OmitThisParameter<typeof toHex> = toHex.bind(5);
+
+console.log(fiveToHex()); // 5
+```
+
+<br />
+
+---
+
+<br />
+
+##### `ThisType<Type>`
+
+`Type`의 `this` 컨텍스트를 명시하는 역할을 하며 별도의 타입을 반환하지 않는다.
+
+<br />
+
+---
+
+<br />
+
+#### 참고
+
+<br />
+
+-   https://www.typescriptlang.org/docs/handbook/utility-types.html
+-   https://typescript-kr.github.io/pages/utility-types.html#excludetu
+
+<br />
