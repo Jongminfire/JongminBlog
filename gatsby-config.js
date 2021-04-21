@@ -5,6 +5,7 @@ require(`dotenv`).config({
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 module.exports = {
+	
 	siteMetadata: {
 		siteTitle: `JONGMINFIRE 🔥`,
 		siteTitleAlt: `Jongminfire`,
@@ -18,11 +19,10 @@ module.exports = {
 	plugins: [
 		{
 			resolve: `gatsby-plugin-gtag`,
-			options: {
-				trackingId: `G-0HTD4WH76G`,
-				head: false,
-				anonymize: true,
-			},
+      		options: {
+        		trackingId: `UA-194374114-1`,
+        		head: false,
+        		anonymize: true,
 		},
 		{
 			resolve: `@lekoarts/gatsby-theme-minimal-blog`,
