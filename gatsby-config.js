@@ -17,6 +17,14 @@ module.exports = {
 	},
 	plugins: [
 		{
+			resolve: `gatsby-plugin-gtag`,
+			options: {
+				trackingId: `G-0HTD4WH76G`,
+				head: false,
+				anonymize: true,
+			},
+		},
+		{
 			resolve: `@lekoarts/gatsby-theme-minimal-blog`,
 			options: {
 				navigation: [
@@ -45,12 +53,6 @@ module.exports = {
 			resolve: "gatsby-plugin-react-helmet-canonical-urls",
 			options: {
 				siteUrl: `https://jongminfire.dev`,
-			},
-		},
-		{
-			resolve: `gatsby-plugin-google-analytics`,
-			options: {
-				trackingId: "G-0HTD4WH76G",
 			},
 		},
 		`gatsby-plugin-sitemap`,
