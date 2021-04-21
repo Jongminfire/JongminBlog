@@ -25,6 +25,14 @@ module.exports = {
 			},
 		},
 		{
+			resolve: "gatsby-plugin-robots-txt",
+			options: {
+				host: "https://jongminfire.dev",
+				sitemap: "https://jongminfire.dev/sitemap.xml",
+				policy: [{ userAgent: "*", allow: "/" }],
+			},
+		},
+		{
 			resolve: `@lekoarts/gatsby-theme-minimal-blog`,
 			options: {
 				navigation: [
@@ -59,10 +67,10 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-				short_name: `minimal-blog`,
-				description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
-				start_url: `/`,
+				name: `JONGMINFIRE 🔥`,
+				short_name: `jongminfire`,
+				description: `프론트엔드 개발자 이종민 블로그`,
+				start_url: `https://jongminfire.dev`,
 				background_color: `#fff`,
 				theme_color: `#6B46C1`,
 				display: `standalone`,
