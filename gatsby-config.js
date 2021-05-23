@@ -17,19 +17,19 @@ module.exports = {
 	},
 	plugins: [
 		{
-			resolve: `gatsby-plugin-gtag`,
-			options: {
-				trackingId: `UA-194374114-1`,
-				head: false,
-				anonymize: true,
-			},
-		},
-		{
 			resolve: "gatsby-plugin-robots-txt",
 			options: {
 				host: "https://jongminfire.dev",
 				sitemap: "https://jongminfire.dev/sitemap.xml",
 				policy: [{ userAgent: "*", allow: "/" }],
+			},
+		},
+		{
+			resolve: `gatsby-plugin-gtag`,
+			options: {
+				trackingId: `UA-194374114-1`,
+				head: false,
+				anonymize: true,
 			},
 		},
 		{
@@ -61,6 +61,18 @@ module.exports = {
 			resolve: "gatsby-plugin-react-helmet-canonical-urls",
 			options: {
 				siteUrl: `https://jongminfire.dev`,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-google-fonts`,
+			options: {
+				fonts: [
+					`Anton`,
+					`Oswald\:500`,
+					`Noto Sans KR`,
+					`source sans pro\:300,400,400i,700`, // you can also specify font weights and styles
+				],
+				display: "block",
 			},
 		},
 		`gatsby-plugin-sitemap`,

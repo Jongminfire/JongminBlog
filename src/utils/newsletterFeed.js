@@ -1,7 +1,7 @@
 /* eslint arrow-body-style: 0 */
 
 module.exports = (title) => ({
-  query: `
+	query: `
     {
       site {
         siteMetadata {
@@ -13,21 +13,21 @@ module.exports = (title) => ({
       }
     }
   `,
-  feeds: [
-    {
-      serialize: ({ query: { site, allPost } }) => {
-        return allPost.nodes.map((post) => {
-          return {
-            title: post.title,
-            date: post.date,
-            excerpt: post.excerpt,
-            url: site.siteMetadata.siteUrl + post.slug,
-            guid: site.siteMetadata.siteUrl + post.slug,
-            custom_elements: [{ "content:encoded": post.html }],
-          }
-        })
-      },
-      query: `
+	feeds: [
+		{
+			serialize: ({ query: { site, allPost } }) => {
+				return allPost.nodes.map((post) => {
+					return {
+						title: post.title,
+						date: post.date,
+						excerpt: post.excerpt,
+						url: site.siteMetadata.siteUrl + post.slug,
+						guid: site.siteMetadata.siteUrl + post.slug,
+						custom_elements: [{ "content:encoded": post.html }],
+					};
+				});
+			},
+			query: `
         {
           allPost(sort: { fields: date, order: DESC }) {
             nodes {
@@ -40,8 +40,8 @@ module.exports = (title) => ({
           }
         }
       `,
-      output: `rss.xml`,
-      title,
-    },
-  ],
-})
+			output: `rss.xml`,
+			title,
+		},
+	],
+});
