@@ -4,7 +4,7 @@
  
 <br/>
 
-![JongminfireDev](JongminfireDev.png)
+![mainpage](mainpage.png)
 
 ### [구경하기 👀](https://jongminfire.dev)
 
