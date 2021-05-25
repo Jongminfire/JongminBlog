@@ -29,13 +29,7 @@
 
 <br/>
 
-<!-- BLOG-POST-LIST:START -->
-- [SPA(Single Page Application)란?](https://jongminfire.dev/spa-single-page-application-란)
-- [TypeScript의 유틸리티 타입](https://jongminfire.dev/type-script의-유틸리티-타입)
-- [파이썬 enumerate() & zip()](https://jongminfire.dev/파이썬-enumerate-zip)
-- [CSS-in-JS](https://jongminfire.dev/css-in-js)
-- [OSI 7 계층](https://jongminfire.dev/osi-7-계층)
-<!-- BLOG-POST-LIST:END -->
+<!-- BLOG-POST-LIST:START -->[SPA(Single Page Application)란?](https://jongminfire.dev/spa-single-page-application-란) $randomEmoji (Sun May 02 2021 12:00 AM)[TypeScript의 유틸리티 타입](https://jongminfire.dev/type-script의-유틸리티-타입) $randomEmoji (Wed Apr 21 2021 12:00 AM)[파이썬 enumerate() & zip()](https://jongminfire.dev/파이썬-enumerate-zip) $randomEmoji (Tue Apr 13 2021 12:00 AM)[CSS-in-JS](https://jongminfire.dev/css-in-js) $randomEmoji (Sun Apr 04 2021 12:00 AM)[OSI 7 계층](https://jongminfire.dev/osi-7-계층) $randomEmoji (Thu Mar 25 2021 12:00 AM)<!-- BLOG-POST-LIST:END -->
 
 <br/>
 
