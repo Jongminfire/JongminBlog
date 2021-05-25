@@ -1,6 +1,6 @@
 <div align="center">
 
-### JONGMINFIRE.dev 🔥
+# JONGMINFIRE.dev 🔥
  
 <br/>
 
@@ -11,8 +11,6 @@
 <br/>
 
 </div>
-
----
 
 <br/>
 
@@ -28,6 +26,8 @@
 <br/>
 
 ### 최근 게시글 📚
+
+<br/>
 
 <!-- BLOG-POST-LIST:START -->
 - [SPA(Single Page Application)란?](https://jongminfire.dev/spa-single-page-application-란)
