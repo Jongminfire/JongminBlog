@@ -13,4 +13,3 @@ jobs:
               with:
                   max_post_count: "5"
                   feed_list: "https://jongminfire.dev/rss.xml"
-                  template: '[$title]($url) $randomEmoji ($date)'
