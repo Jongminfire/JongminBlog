@@ -30,9 +30,9 @@
 <br/>
 
 <!-- BLOG-POST-LIST:START -->
-- [SPA(Single Page Application)란?](https://jongminfire.dev/spa-single-page-application-란)
+- [SPA&lpar;Single Page Application&rpar;란?](https://jongminfire.dev/spa-single-page-application-란)
 - [TypeScript의 유틸리티 타입](https://jongminfire.dev/type-script의-유틸리티-타입)
-- [파이썬 enumerate() & zip()](https://jongminfire.dev/파이썬-enumerate-zip)
+- [파이썬 enumerate&lpar;&rpar; &amp; zip&lpar;&rpar;](https://jongminfire.dev/파이썬-enumerate-zip)
 - [CSS-in-JS](https://jongminfire.dev/css-in-js)
 - [OSI 7 계층](https://jongminfire.dev/osi-7-계층)
 <!-- BLOG-POST-LIST:END -->
