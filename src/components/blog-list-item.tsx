@@ -22,7 +22,7 @@ type BlogListItemProps = {
 };
 
 const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
-	<Box mb={4} style={{ marginBottom: "5rem" }}>
+	<Box mb={4} style={{ marginBottom: "3rem" }}>
 		<div style={{ marginBottom: "0.5rem" }}>
 			<time>{post.date}</time>
 			<br />
