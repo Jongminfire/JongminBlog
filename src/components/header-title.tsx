@@ -11,7 +11,9 @@ const HeaderTitle = () => {
 
 	return (
 		<Link to={replaceSlashes(`/${basePath}`)} aria-label={`${siteTitle} - Back to home`} sx={{ color: `heading`, textDecoration: `none` }}>
-			<div sx={{ my: 0, fontWeight: `medium`, fontSize: [3, 4], fontFamily: `Oswald` }}>{siteTitle}</div>
+			<div sx={{ backgroundColor: "#B01A00", padding: "0 1rem" }}>
+				<div sx={{ my: 0, fontWeight: `700`, fontSize: [3, 4], fontFamily: `Roboto Condensed`, color: "#fff" }}>{siteTitle}</div>
+			</div>
 		</Link>
 	);
 };

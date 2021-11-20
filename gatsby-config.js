@@ -6,7 +6,7 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 module.exports = {
 	siteMetadata: {
-		siteTitle: `JONGMINFIRE 🔥`,
+		siteTitle: `JONGMINFIRE.DEV`,
 		siteTitleAlt: `Jongminfire`,
 		siteHeadline: `Jongminfire`,
 		siteUrl: `https://jongminfire.dev`,
@@ -67,9 +67,9 @@ module.exports = {
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
 				fonts: [
-					`Anton`,
+					`Noto Sans KR\:300,400,500,600,700`,
+					`Roboto Condensed\:400,700`,
 					`Oswald\:500`,
-					`Noto Sans KR`,
 					`source sans pro\:300,400,400i,700`, // you can also specify font weights and styles
 				],
 				display: "block",

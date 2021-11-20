@@ -18,15 +18,15 @@ const Title = ({ text, children, as = `h2`, className = `` }: TitleProps) => (
 			borderBottomStyle: `solid`,
 			borderBottomWidth: `1px`,
 			borderBottomColor: `divide`,
-			pb: 3,
+			pb: 2,
 			mb: 4,
 			flexFlow: `wrap`,
 			boxSizing: `border-box`,
 			display: `flex`,
-			fontFamily: `Oswald`,
+			fontFamily: `Roboto Condensed`,
 		}}
 	>
-		<Box as={as} sx={{ fontWeight: `medium`, fontSize: [3, 4], fontFamily: `heading`, lineHeight: `heading`, color: `heading` }} className={className}>
+		<Box as={as} sx={{ fontWeight: `bold`, fontSize: [4, 5], fontFamily: `heading`, lineHeight: `heading`, color: `heading` }} className={className}>
 			{text}
 		</Box>
 		<div

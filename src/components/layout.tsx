@@ -49,6 +49,7 @@ const Layout = ({ children, className = `` }: LayoutProps) => (
 			<Box id="skip-nav" sx={{ ...CodeStyles }} className={className}>
 				{children}
 			</Box>
+
 			<Footer />
 		</Container>
 	</React.Fragment>

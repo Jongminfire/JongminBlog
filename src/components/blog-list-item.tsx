@@ -28,12 +28,12 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
 			<br />
 			<ItemTags tags={post.tags} />
 		</div>
-		<TLink as={Link} to={post.slug} sx={{ fontSize: [2, 3, 4], color: `text` }}>
+		<TLink as={Link} to={post.slug} sx={{ fontWeight: "500", fontSize: [2, 3, 3], color: `text` }}>
 			{post.title}
 		</TLink>
 		<br />
-		<div style={{ marginTop: "1.5vh" }} />
-		<Box sx={{ fontSize: [9, 1, 1] }}>{post.excerpt}</Box>
+		<div style={{ marginTop: "0.5rem" }} />
+		<Box sx={{ fontSize: [1, 1, 1] }}>{post.excerpt}</Box>
 	</Box>
 );
 

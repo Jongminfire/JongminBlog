@@ -47,7 +47,7 @@ const Post = ({ data: { post } }: PostProps) => (
 		/>
 		<div style={{ boxShadow: "3px 3px 10px rgba(200,200,200,0.5)", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
 			<center>
-				<Heading as="h2" variant="styles.h2">
+				<Heading as="h3" variant="styles.h3" sx={{ fontSize: [2, 5] }}>
 					{post.title}
 				</Heading>
 			</center>
@@ -64,7 +64,7 @@ const Post = ({ data: { post } }: PostProps) => (
 		<br />
 		<section
 			sx={{
-				my: 5,
+				my: [4, 5],
 				".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) },
 				variant: `layout.content`,
 			}}
