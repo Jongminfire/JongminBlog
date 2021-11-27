@@ -1,0 +1,181 @@
+---
+title: TypeScript - type과 interface
+date: 2021-11-27
+tags:
+    - TypeScript
+---
+
+타입스크립트에서 타입을 정의하는 방식은 두 가지가 있다. 바로 `type alias`와 `interface`의 사용이다.
+
+<br />
+
+#### type과 interface의 공통점
+
+type alias와 interface는 선언부터 사용까지 많은 공통점을 가진다.
+
+<br />
+
+##### type alias와 interface의 선언
+
+<br />
+
+```ts
+type Person = {
+	name: string;
+	age: number;
+};
+
+const jongmin: Person = {
+	name: "이종민",
+	age: 26,
+};
+```
+
+<br />
+
+```ts
+interface Person {
+	name: string;
+	age: number;
+}
+
+const jongmin: Person = {
+	name: "이종민",
+	age: 26,
+};
+```
+
+<br />
+
+두 방식을 비교해보면 선언 할 때 `=`의 유무 외에는 다른 점이 없어보인다. 이처럼 type alias와 interface의 선언 방식은 유사하다.
+
+<br />
+
+##### Type과 Interface의 상속
+
+<br />
+
+`implements`, `extends`를 통한 상속에 있어서도 TypeScript 이전 버전에서는 type alias로 extends 할 수 없었지만, 2.7 버전부터 교차 타입(Intersection Types)을 생성함으로써 가능해졌다.
+
+<br />
+
+```ts
+type Animal = {
+	name: string;
+};
+
+type Puppy = Animal & {
+	culryHair: boolean;
+};
+
+// type alias는 & 키워드를 통해 상속한다
+```
+
+<br />
+
+```ts
+interface Animal {
+	name: string;
+}
+
+interface Puppy extends Animal {
+	culryHair: boolean;
+}
+
+// interface는 extends 키워드를 통해 상속한다
+```
+
+<br />
+
+> 타입 정의 내에서 union 연산자 (`|`)를 사용하는 경우에는 `extends`와 `implements` 사용이 불가능 함을 주의한다.
+
+<br />
+
+---
+
+<br />
+
+#### type과 interface의 차이
+
+그렇다면 type alias와 interface에는 어떤 차이점이 있을까?
+
+<br />
+
+##### 선언 병합 (Declaration Merging)
+
+선언 병합이란 같은 이름으로 선언된 **두 개 이상의 개별적인 선언을 하나의 정의로 병합**하는 것을 말한다.
+
+<br />
+
+```ts
+interface Puppy {
+	name: string;
+}
+
+interface Puppy {
+	breed: string;
+}
+
+interface Puppy {
+	culryHair: boolean;
+}
+
+const molly: Puppy = {
+	name: "Molly",
+	breed: "poodle",
+	culryHair: true,
+};
+```
+
+<br />
+
+위의 예시처럼 `Puppy`라는 같은 이름으로 세 번의 선언이 이루어졌는데, 이후 `molly`라는 변수를 선언 할 때는 `Puppy` interface에 개별적으로 선언 된 프로퍼티가 포함되어 있음을 알 수 있다.
+
+<br />
+
+```ts
+type Puppy = {
+	name: string;
+};
+
+type Puppy = {
+	breed: string;
+};
+
+type Puppy = {
+	culryHair: boolean;
+};
+
+// error TS2300: Duplicate identifier 'Puppy'
+```
+
+<br />
+
+하지만 type alias 로는 선언 병합 대신 에러만 확인 할 수 있다.
+
+<br />
+
+---
+
+<br />
+
+#### 결론
+
+<br />
+
+이와 같이 interface 의 경우 같은 이름으로 여러 번 선언해도 컴파일 시 합쳐지기 때문에 **확장성이 좋다는 특징**을 가진다. 따라서 일반적으로 interface 를 사용하며 union (`|`) 혹은 tuple (`[]`)과 같이 `type`이 꼭 필요한 경우에는 type alias 를 사용하는 것이 좋아보인다. <br/>
+
+또한 외부에 public 으로 공개할 API로는 확장성을 위해 interface 를 사용하는 것이 권장된다.
+
+<br />
+
+---
+
+<br />
+
+#### 참고
+
+-   [TypeScript 공식문서 - Differences Between Type Aliases and Interfaces](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces)
+-   [JoonsungUm님 블로그](https://joonsungum.github.io/post/2019-02-25-typescript-interface-and-type-alias/)
+
+<br />
