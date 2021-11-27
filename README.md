@@ -30,11 +30,11 @@
 <br/>
 
 <!-- BLOG-POST-LIST:START -->
+- [TypeScript - type과 interface](https://jongminfire.dev/type-script-type과-interface)
 - [자바스크립트 이벤트 루프와 비동기 통신](https://jongminfire.dev/자바스크립트-이벤트-루프와-비동기-통신)
 - [함수형 프로그래밍이란?](https://jongminfire.dev/함수형-프로그래밍이란)
 - [객체지향 프로그래밍이란?](https://jongminfire.dev/객체지향-프로그래밍이란)
 - [SPA&lpar;Single Page Application&rpar;란?](https://jongminfire.dev/spa-single-page-application-란)
-- [TypeScript의 유틸리티 타입](https://jongminfire.dev/type-script의-유틸리티-타입)
 <!-- BLOG-POST-LIST:END -->
 
 <br/>
