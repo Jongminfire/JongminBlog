@@ -30,11 +30,11 @@
 <br/>
 
 <!-- BLOG-POST-LIST:START -->
+- [GraphQL이란?](https://jongminfire.dev/graph-ql이란)
 - [JavaScript - 즉시실행함수&lpar;IIFE&rpar;](https://jongminfire.dev/java-script-즉시실행함수-iife)
 - [JavaScript - null과 undefined](https://jongminfire.dev/java-script-null과-undefined)
 - [TypeScript - type과 interface](https://jongminfire.dev/type-script-type과-interface)
 - [자바스크립트 이벤트 루프와 비동기 통신](https://jongminfire.dev/자바스크립트-이벤트-루프와-비동기-통신)
-- [함수형 프로그래밍이란?](https://jongminfire.dev/함수형-프로그래밍이란)
 <!-- BLOG-POST-LIST:END -->
 
 <br/>
