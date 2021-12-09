@@ -30,11 +30,11 @@
 <br/>
 
 <!-- BLOG-POST-LIST:START -->
+- [React - JSX와 Babel](https://jongminfire.dev/react-jsx와-babel)
 - [JavaScript - 이벤트 버블링과 이벤트 캡처링](https://jongminfire.dev/java-script-이벤트-버블링과-이벤트-캡처링)
 - [GraphQL이란?](https://jongminfire.dev/graph-ql이란)
 - [JavaScript - 즉시실행함수&lpar;IIFE&rpar;](https://jongminfire.dev/java-script-즉시실행함수-iife)
 - [JavaScript - null과 undefined](https://jongminfire.dev/java-script-null과-undefined)
-- [TypeScript - type과 interface](https://jongminfire.dev/type-script-type과-interface)
 <!-- BLOG-POST-LIST:END -->
 
 <br/>
