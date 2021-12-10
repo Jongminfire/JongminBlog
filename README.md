@@ -30,11 +30,11 @@
 <br/>
 
 <!-- BLOG-POST-LIST:START -->
+- [React - useEffect 훅 &lpar;이펙트 함수, 클린업 함수&rpar;](https://jongminfire.dev/react-use-effect-훅-이펙트-함수-클린업-함수)
 - [React - JSX와 Babel](https://jongminfire.dev/react-jsx와-babel)
 - [JavaScript - 이벤트 버블링과 이벤트 캡처링](https://jongminfire.dev/java-script-이벤트-버블링과-이벤트-캡처링)
 - [GraphQL이란?](https://jongminfire.dev/graph-ql이란)
 - [JavaScript - 즉시실행함수&lpar;IIFE&rpar;](https://jongminfire.dev/java-script-즉시실행함수-iife)
-- [JavaScript - null과 undefined](https://jongminfire.dev/java-script-null과-undefined)
 <!-- BLOG-POST-LIST:END -->
 
 <br/>
