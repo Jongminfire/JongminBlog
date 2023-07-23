@@ -1,7 +1,6 @@
 /** @jsx jsx */
-import { jsx, Heading, Link as TLink } from "theme-ui";
+import { jsx, Link as TLink } from "theme-ui";
 import { Link } from "gatsby";
-import React from "react";
 import Layout from "../components/layout";
 import useMinimalBlogConfig from "../hooks/use-minimal-blog-config";
 import replaceSlashes from "../utils/replaceSlashes";
